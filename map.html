@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lokasi 5 Fakultas di UGM</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #fdf6e3;
+      }
+      #map {
+        height: 100vh;
+        width: 100%;
+        border-radius: 20px;
+      }
+      nav {
+        background-color: #006d77;
+        color: white;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+      .section {
+        padding: 1rem;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Peta 5 Fakultas UGM</a>
+        <div>
+          <a href="/index.html">Home</a>
+          <a href="#map">Map</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PETA 5 FAKULTAS UGM -->
+    <div id="map"></div>
+
+    <!-- <section id="about" class="section">
+      <div class="container">
+        <h2>Tentang Saya</h2>
+        <table class="table table-bordered w-50">
+          <tr>
+            <th>Nama</th>
+            <td>asd</td>
+          </tr>
+          <tr>
+            <th>NIM</th>
+            <td>asd</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>0n7b8@example.com</td>
+          </tr>
+        </table>
+      </div>
+    </section> -->
+
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"></script>
+    <script>
+      var map = L.map("map").setView(
+        [-7.7696282492455975, 110.37859252878474],
+        16
+      );
+
+      map.zoomControl.setPosition("bottomright");
+
+      var baseLayer = L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        }
+      ).addTo(map);
+
+      // Marker Fakultas di UGM
+      var places = [
+        {
+          coords: [-7.765083204979203, 110.37247950957232],
+          name: "Fakultas Teknik UGM",
+          img: "https://ft.ugm.ac.id/wp-content/uploads/sites/31/2024/03/DSCF7793-scaled.jpg",
+          link: "https://maps.app.goo.gl/p9byihcAzEswNs4x5",
+          desc: "Jl. Grafika no 2. Yogyakarta 55281",
+        },
+        {
+          coords: [-7.770328267737133, 110.38125789792853],
+          name: "Fakultas Hukum UGM",
+          img: "https://law.ugm.ac.id/wp-content/uploads/sites/9/2021/11/DSC00037-1024x683.jpg",
+          link: "https://maps.app.goo.gl/9nyNnoGmKPV2SDfv5",
+          desc: "Jl. Sosio Yustisia No. 1, Bulaksumur, Kab. Sleman, D.I. Yogyakarta 55281",
+        },
+        {
+          coords: [-7.766860444883421, 110.37616682491478],
+          name: "Fakultas MIPA UGM",
+          img: "https://mipa.ugm.ac.id/wp-content/uploads/sites/28/mipa2.png",
+          link: "https://maps.app.goo.gl/Bz9utux7H8FEb7pq7",
+          desc: "Sekip Utara Bulaksumur Yogyakarta 55281",
+        },
+        {
+          coords: [-7.770474349690401, 110.37892819607926],
+          name: "Fakultas Ekonomika dan Bisnis UGM",
+          img: "https://ugm.ac.id/wp-content/uploads/2024/02/feb-pertamina-tower.jpg",
+          link: "https://maps.app.goo.gl/wB22q356nhEdbHgY9",
+          desc: "Jln. Sosio Humaniora No.1, Bulaksumur, Yogyakarta, Indonesia 55281",
+        },
+        {
+          coords: [-7.769033421167135, 110.37631047100858],
+          name: "Fakultas Farmasi UGM",
+          img: "https://ugm.ac.id/wp-content/uploads/2022/11/fak-farmasi1.jpg",
+          link: "https://maps.app.goo.gl/1mAef5EXZQJ3SksaA",
+          desc: "Sekip Utara, Yogyakarta 55281",
+        },
+      ];
+
+      places.forEach((p) => {
+        L.marker(p.coords)
+          .addTo(map)
+          .bindPopup(
+            `<strong>${p.name}</strong><br>
+            <img src="${p.img}" width="200" /><br>
+            ${p.desc}<br>
+            <a href="${p.link}" target="_blank">Lihat di Google Maps</a>`
+          );
+      });
+
+      // Tambahkan GeoJSON dari file jogja.json
+      fetch("jogja.json")
+        .then((res) => res.json())
+        .then((data) => {
+          L.geoJSON(data, {
+            style: (feature) => {
+              const colorMap = {
+                "Gunung Kidul": "orange",
+                Sleman: "red",
+                Bantul: "blue",
+                Yogyakarta: "green",
+                "Kulon Progo": "magenta",
+              };
+              return {
+                color: colorMap[feature.properties.KABUPATEN] || "gray",
+                weight: 1, // tambahkan properti weight
+                opacity: 0.5, // tambahkan properti opacity
+                fillOpacity: 0,
+              };
+            },
+            onEachFeature: (feature, layer) => {
+              layer.bindPopup(
+                `<strong>Kecamatan:</strong> ${feature.properties.KECAMATAN}`
+              );
+            },
+          }).addTo(map);
+        });
+    </script>
+  </body>
+</html>
