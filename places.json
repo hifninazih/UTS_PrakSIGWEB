@@ -1,0 +1,37 @@
+[
+  {
+    "coords": [-7.765083204979203, 110.37247950957232],
+    "name": "Fakultas Teknik UGM",
+    "img": "https://ft.ugm.ac.id/wp-content/uploads/sites/31/2024/03/DSCF7793-scaled.jpg",
+    "link": "https://maps.app.goo.gl/p9byihcAzEswNs4x5",
+    "desc": "Jl. Grafika no 2. Yogyakarta 55281"
+  },
+  {
+    "coords": [-7.770328267737133, 110.38125789792853],
+    "name": "Fakultas Hukum UGM",
+    "img": "https://law.ugm.ac.id/wp-content/uploads/sites/9/2021/11/DSC00037-1024x683.jpg",
+    "link": "https://maps.app.goo.gl/9nyNnoGmKPV2SDfv5",
+    "desc": "Jl. Sosio Yustisia No. 1, Bulaksumur, Kab. Sleman, D.I. Yogyakarta 55281"
+  },
+  {
+    "coords": [-7.766860444883421, 110.37616682491478],
+    "name": "Fakultas MIPA UGM",
+    "img": "https://mipa.ugm.ac.id/wp-content/uploads/sites/28/mipa2.png",
+    "link": "https://maps.app.goo.gl/Bz9utux7H8FEb7pq7",
+    "desc": "Sekip Utara Bulaksumur Yogyakarta 55281"
+  },
+  {
+    "coords": [-7.770474349690401, 110.37892819607926],
+    "name": "Fakultas Ekonomika dan Bisnis UGM",
+    "img": "https://ugm.ac.id/wp-content/uploads/2024/02/feb-pertamina-tower.jpg",
+    "link": "https://maps.app.goo.gl/wB22q356nhEdbHgY9",
+    "desc": "Jln. Sosio Humaniora No.1, Bulaksumur, Yogyakarta, Indonesia 55281"
+  },
+  {
+    "coords": [-7.769033421167135, 110.37631047100858],
+    "name": "Fakultas Farmasi UGM",
+    "img": "https://ugm.ac.id/wp-content/uploads/2022/11/fak-farmasi1.jpg",
+    "link": "https://maps.app.goo.gl/1mAef5EXZQJ3SksaA",
+    "desc": "Sekip Utara, Yogyakarta 55281"
+  }
+]
