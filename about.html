@@ -23,7 +23,58 @@
       </div>
     </nav>
 
-    <section id="about" class="section">
+    <!-- Esai kegiatan praktikum -->
+    <section class="section">
+      <div class="container">
+        <h1>About</h1>
+        <h2>Esai Kegiatan Praktikum</h2>
+        <p style="text-align: justify">
+          Kegiatan Praktikum Sebagai mahasiswa Universitas Gadjah Mada jurusan
+          Teknik Geodesi angkatan 2022, saya memiliki kesempatan untuk mengikuti
+          mata kuliah Praktikum SIG Web yang sangat menarik. Mata kuliah ini
+          membahas tentang pengembangan web map yang sangat relevan dengan
+          bidang studi saya. Pada minggu ke-2, saya dan teman-teman saya
+          diajarkan tentang cara membuat form validasi yang efektif. Kegiatan
+          ini sangat bermanfaat karena saya dapat memahami bagaimana membuat
+          form yang dapat memvalidasi input pengguna dengan benar. Pada minggu
+          ke-3, kami diajarkan tentang cara membuat halaman web dengan
+          menggunakan Bootstrap. Framework ini sangat membantu saya dalam
+          membuat halaman web yang responsif dan mudah digunakan. Pada minggu
+          ke-5, kami diajarkan tentang cara membuat tampilan peta sederhana
+          dengan menggunakan Leafletjs. Library ini sangat membantu saya dalam
+          membuat peta yang interaktif dan dapat diintegrasikan dengan data
+          lainnya.
+        </p>
+        <p>
+          Selain itu, pada minggu ke-5, kami juga diajarkan tentang cara membuat
+          halaman web sederhana dengan menggunakan HTML, CSS, dan Javascript.
+          Kegiatan ini sangat bermanfaat karena saya dapat memahami bagaimana
+          membuat halaman web yang dapat menampilkan data dengan efektif. Dengan
+          demikian, saya dapat memahami bagaimana membuat aplikasi web yang
+          dapat menampilkan data dengan efektif dan interaktif. Saya sangat
+          berharap bahwa pengetahuan dan keterampilan yang saya dapatkan dari
+          mata kuliah ini dapat saya aplikasikan dalam proyek-proyek yang akan
+          saya kerjakan di masa depan.
+        </p>
+        <p>
+          Jika penasaran dengan hal yang dipelajari di Teknik Geodesi UGN, kamu
+          dapat berkunjung ke halaman resmi
+          <a href="https://geodesi.ugm.ac.id/">https://geodesi.ugm.ac.id/</a>
+          .
+        </p>
+        <a
+          href="https://sigweb.hifninazih.my.id/"
+          class="btn"
+          target="_blank"
+          style="background-color: #006d77; color: #fdf6e3"
+        >
+          Hasil Praktikum
+        </a>
+      </div>
+    </section>
+
+    <!-- Tabel Nama Nim -->
+    <section class="section">
       <div class="container">
         <h2>Tentang Saya</h2>
         <table class="table table-bordered w-50">
@@ -42,5 +93,34 @@
         </table>
       </div>
     </section>
+
+    <!-- Validasi Pekerjaan Selesai -->
+    <section class="section">
+      <div class="container w-50">
+        <h2>Validasi Pekerjaan Selesai</h2>
+        <form class="row g-3">
+          <div class="col-auto">
+            <label for="inputPassword" class="visually-hidden">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Password"
+            />
+          </div>
+          <div class="col-auto">
+            <button
+              type="button"
+              class="btn btn-primary mb-3"
+              onclick="validasiPassword()"
+            >
+              Validasi
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="validation.js"></script>
   </body>
 </html>
